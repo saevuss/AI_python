@@ -5,6 +5,8 @@ input_data = np.array([[2.1, -1.9, 5.5],
                        [-1.5, 2.4, 3.5],
                        [0.5, -7.9, 5.6],
                        [5.9, 2.3, -5.8]])
+
+#************* DATA PROCESSING **************
 #BINARIZATION
 data_binarized = preprocessing.Binarizer(threshold=0.5).transform(input_data) #all values above threshold would be converted to 1, and all the values below 0.5 to 0
 print("\nBinarized data:\n", data_binarized)
@@ -34,6 +36,25 @@ data_normalized_l2 = preprocessing.normalize(input_data, norm='l2')
 print("\nNormalized L2 data:\n", data_normalized_l2)
 
 
+#************* LABELLING **************
+#sample input labels
+input_labels = ['red', 'black', 'red', 'green', 'black', 'yellow', 'white']
+
+#creating the label encoder
+encoder = preprocessing.LabelEncoder()
+encoder.fit(input_labels)
+
+#encoding a set of labels
+test_labels = ['green', 'red', 'black']
+encoded_values = encoder.transform(test_labels) #firstly the string are reordered alphabetically, then it is assigned the number
+print("\nLabels =", test_labels)
+print("\nEncoded values =", list(encoded_values))
+
+#decoding a set of values
+encoded_values = [3, 0, 4, 1]
+decoded_list = encoder.inverse_transform(encoded_values)
+print("\nEncoded values =", encoded_values)
+print("\nDecoded values =", list(decoded_list))
 
 
 
