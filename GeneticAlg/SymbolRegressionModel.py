@@ -63,3 +63,6 @@ if __name__ == "__main__":
     number_gen = 10
     population, log = algorithms.eaSimple(population, toolbox, probab_crossover, probab_mutate, number_gen,
                                           stats=mstats, halloffame=hall_of_fame, verbose=True)
+
+    ''' Il programma mostra statistiche per ogni generazione e alla fine restituisce la
+     migliore espressione trovata che approssima la funzione obiettivo. '''
